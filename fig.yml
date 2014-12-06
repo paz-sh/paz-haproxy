@@ -1,0 +1,72 @@
+etcd:
+  image: coreos/etcd
+  environment:
+   - ETCD_ADDR=192.168.59.103:4001
+   - ETCD_PEER_ADDR=192.168.59.103:7001
+  ports:
+   - "4001:4001"
+   - "7001:7001"
+haproxy:
+  build: .
+  ports:
+    - "80:80"
+    - "443:443"
+    - "1996:1996"
+  environment:
+    - ETCD=etcd_1:4001
+  links:
+    - etcd
+api1:
+  image: lukebond/demo-api
+  ports:
+    - "9000:9000"
+  environment:
+    - MESSAGE=api1
+api2:
+  image: lukebond/demo-api
+  ports:
+    - "9001:9000"
+  environment:
+    - MESSAGE=api2
+api3:
+  image: lukebond/demo-api
+  ports:
+    - "9002:9000"
+  environment:
+    - MESSAGE=api3
+web1:
+  image: lukebond/demo-api
+  ports:
+    - "9003:9000"
+  environment:
+    - MESSAGE=web1
+web2:
+  image: lukebond/demo-api
+  ports:
+    - "9004:9000"
+  environment:
+    - MESSAGE=web2
+web3:
+  image: lukebond/demo-api
+  ports:
+    - "9005:9000"
+  environment:
+    - MESSAGE=web3
+web4:
+  image: lukebond/demo-api
+  ports:
+    - "9006:9000"
+  environment:
+    - MESSAGE=web4
+web5:
+  image: lukebond/demo-api
+  ports:
+    - "9007:9000"
+  environment:
+    - MESSAGE=web5
+web6:
+  image: lukebond/demo-api
+  ports:
+    - "9008:9000"
+  environment:
+    - MESSAGE=web6

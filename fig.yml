@@ -1,5 +1,5 @@
 etcd:
-  image: coreos/etcd
+  image: coreos/etcd:v0.5.0_alpha.5
   environment:
    - ETCD_ADDR=192.168.59.103:4001
    - ETCD_PEER_ADDR=192.168.59.103:7001

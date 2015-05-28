@@ -1,8 +1,7 @@
 FROM quay.io/yldio/paz-base
 
 RUN \
-    apk add wget && \
-    mkdir -p /etc/default && \
+	apk add wget && \
 	wget -O /usr/bin/confd https://github.com/kelseyhightower/confd/releases/download/v0.6.0-alpha3/confd-0.6.0-alpha3-linux-amd64 
 
 RUN \

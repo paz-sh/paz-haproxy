@@ -1,12 +1,12 @@
 #!/bin/bash -e
-fig stop
-fig build
-fig up -d
+docker-compose stop
+docker-compose build
+docker-compose up -d
 echo Waiting for haproxy to come up...
-until ! $(fig ps | grep haproxy_1 | grep " Up ") > /dev/null 2>&1; do sleep 1; done
+until ! $(docker-compose ps | grep haproxy_1 | grep " Up ") > /dev/null 2>&1; do sleep 1; done
 echo Fig is up
-etcdctl --peers=192.168.59.103:4001 mkdir /paz/config
-etcdctl --peers=192.168.59.103:4001 set /paz/config/domain lukeb0nd.com
+etcdctl --peers=192.168.59.103:4001 mkdir /paz/condocker-compose
+etcdctl --peers=192.168.59.103:4001 set /paz/condocker-compose/domain lukeb0nd.com
 etcdctl --peers=192.168.59.103:4001 mkdir /paz/services/demo-api/1
 etcdctl --peers=192.168.59.103:4001 set /paz/services/paz-orchestrator 192.168.59.103:9010
 etcdctl --peers=192.168.59.103:4001 set /paz/services/paz-scheduler 192.168.59.103:9020

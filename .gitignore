@@ -1,2 +1,2 @@
 *.etcd/
-fig.yml.bak
+docker-compose.yml.bak

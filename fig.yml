@@ -5,7 +5,7 @@ etcd:
    - ETCD_PEER_ADDR=192.168.1.14:2380
   ports:
    - "2379:2379"
-   - "7001:7001"
+   - "2380:2380"
 haproxy:
   build: .
   ports:

@@ -1,8 +1,8 @@
 etcd:
   image: quay.io/coreos/etcd:latest
-  environment:
-   - ETCD_ADDR=192.168.1.14:2379
-   - ETCD_PEER_ADDR=192.168.1.14:2380
+  command: >
+    --listen-client-urls 'http://0.0.0.0:2379'
+    --advertise-client-urls 'http://192.168.1.14:2379'
   ports:
    - "2379:2379"
    - "2380:2380"

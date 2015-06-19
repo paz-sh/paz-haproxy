@@ -4,7 +4,7 @@ RUN apt-get update -y && \
     apt-get install --no-install-recommends -qy curl wget build-essential ca-certificates git haproxy socat && \
     sed -i 's/^ENABLED=.*/ENABLED=1/' /etc/default/haproxy
 
-RUN wget -O /usr/bin/confd https://github.com/kelseyhightower/confd/releases/download/v0.6.0-alpha3/confd-0.6.0-alpha3-linux-amd64
+RUN wget -O /usr/bin/confd https://github.com/kelseyhightower/confd/releases/download/v0.9.0/confd-0.9.0-linux-amd64
 RUN chmod +x /usr/bin/confd
 RUN mkdir -p /etc/confd/conf.d
 RUN mkdir -p /etc/confd/templates

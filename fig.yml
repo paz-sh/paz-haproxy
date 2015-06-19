@@ -1,10 +1,10 @@
 etcd:
-  image: coreos/etcd:v0.5.0_alpha.5
+  image: quay.io/coreos/etcd:latest
   environment:
-   - ETCD_ADDR=192.168.59.103:4001
-   - ETCD_PEER_ADDR=192.168.59.103:7001
+   - ETCD_ADDR=192.168.1.14:2379
+   - ETCD_PEER_ADDR=192.168.1.14:2380
   ports:
-   - "4001:4001"
+   - "2379:2379"
    - "7001:7001"
 haproxy:
   build: .
@@ -13,7 +13,7 @@ haproxy:
     - "443:443"
     - "1996:1996"
   environment:
-    - ETCD=etcd_1:4001
+    - ETCD=etcd_1:2379
   links:
     - etcd
 api1:

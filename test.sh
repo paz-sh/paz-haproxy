@@ -33,5 +33,3 @@ etcdctl --peers=$PAZ_IP:2379 mkdir /paz/services/web/2
 etcdctl --peers=$PAZ_IP:2379 set /paz/services/web/2/1 192.168.1.14:9006
 etcdctl --peers=$PAZ_IP:2379 set /paz/services/web/2/2 192.168.1.14:9007
 etcdctl --peers=$PAZ_IP:2379 set /paz/services/web/2/3 192.168.1.14:9008
-
-mv docker-compose.yml.bak docker-compose

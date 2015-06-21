@@ -70,7 +70,7 @@ done
 /etc/init.d/haproxy start
 tail -f /var/log/syslog &
 
-exec /usr/bin/confd -interval 5 -node $NODE -debug &
+exec /usr/bin/confd -interval 5 -node $NODE --log-level debug &
 
 trap cleanup SIGTERM SIGINT
 

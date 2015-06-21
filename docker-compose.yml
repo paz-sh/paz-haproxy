@@ -1,8 +1,8 @@
 etcd:
+  extends:
+    file: docker-compose-local.yml
+    service: etcd
   image: quay.io/coreos/etcd:latest
-  environment:
-   - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
-   - ETCD_ADVERTISE_CLIENT_URLS=http://192.168.1.14:2379
   ports:
    - "2379:2379"
    - "2380:2380"
